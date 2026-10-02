@@ -1,0 +1,36 @@
+<Window x:Class="MyTypingPet.TriggerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="パターンの入力を登録"
+        Width="380" SizeToContent="Height"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        ShowInTaskbar="True">
+    <StackPanel Margin="20">
+        <TextBlock Text="登録したいキーやパッドのボタンを押すか、下の枠をクリックしてください" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" />
+        <TextBlock Margin="0,6,0,0" TextWrapping="Wrap" Foreground="Gray"
+                   Text="例: Ctrl + S / F5 / Shift だけ押して離す / Ctrl を押しながら右クリック / パッドの △" />
+
+        <Border Margin="0,16,0,0" Padding="12" CornerRadius="6" Background="#F0F2F5">
+            <TextBlock x:Name="Preview" Text="…" FontSize="20" HorizontalAlignment="Center" />
+        </Border>
+
+        <!-- チェックボックスとボタンはキー入力を奪わないようフォーカスを取らせない (操作はマウスで) -->
+        <CheckBox x:Name="AnyKeyCheck" Margin="0,14,0,0" Focusable="False"
+                  Content="組み合わせるキーは何でもOK (修飾キー + 任意のキー)" />
+        <TextBlock Margin="20,2,0,0" Foreground="Gray" TextWrapping="Wrap"
+                   Text="チェックすると、修飾キーを押して離すだけで登録できます" />
+
+        <Border x:Name="ClickArea" Margin="0,14,0,0" Height="64" CornerRadius="6" Cursor="Hand"
+                BorderBrush="#9AA5B1" BorderThickness="2" Background="#FAFBFC"
+                MouseDown="ClickArea_MouseDown">
+            <TextBlock Text="ここをクリック (左・右・中・サイドボタン)" Foreground="#52606D"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+
+        <TextBlock x:Name="ErrorText" Margin="0,10,0,0" Foreground="#C0392B" TextWrapping="Wrap" Visibility="Collapsed" />
+        <Button Content="キャンセル" Margin="0,16,0,0" Padding="16,4" HorizontalAlignment="Right"
+                Focusable="False" Click="Cancel_Click" />
+    </StackPanel>
+</Window>

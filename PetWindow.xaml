@@ -1,0 +1,19 @@
+<Window x:Class="MyTypingPet.PetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MyTypingPet"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        ShowActivated="False">
+    <Image x:Name="PetImage"
+           VerticalAlignment="Bottom"
+           Stretch="Uniform"
+           RenderOptions.BitmapScalingMode="HighQuality">
+        <Image.RenderTransform>
+            <TranslateTransform x:Name="Bounce" />
+        </Image.RenderTransform>
+    </Image>
+</Window>

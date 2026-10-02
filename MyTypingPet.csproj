@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <!-- WPF と WinForms の型名 (Application など) が衝突するので暗黙の using は切る -->
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>MyTypingPet</RootNamespace>
+    <AssemblyName>MyTypingPet</AssemblyName>
+    <Version>1.0.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Authors>so-kid</Authors>
+    <Copyright>Copyright (c) 2026 so-kid</Copyright>
+  </PropertyGroup>
+
+</Project>
