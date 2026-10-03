@@ -20,7 +20,7 @@ public partial class PetWindow : Window
 
     const int GWL_EXSTYLE = -20;
     const int WS_EX_TRANSPARENT = 0x00000020;
-    const int WS_EX_TOOLWINDOW = 0x00000080;
+    const int WS_EX_NOACTIVATE = 0x08000000;
 
     [DllImport("user32.dll")]
     static extern int GetWindowLong(IntPtr hwnd, int index);
@@ -80,8 +80,9 @@ public partial class PetWindow : Window
 
     void OnSourceInitialized(object? sender, EventArgs e)
     {
-        // Alt+Tab に出さない
-        SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) | WS_EX_TOOLWINDOW);
+        // Alt+Tab に出さず、OBS のウィンドウキャプチャの候補には残す
+        // (WS_EX_TOOLWINDOW でも Alt+Tab からは消えるが、OBS の候補からも外れてしまう)
+        SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle, GWL_EXSTYLE) | WS_EX_NOACTIVATE);
         SetLocked(_settings.Locked);
 
         _input = new RawInput(HwndSource.FromHwnd(Handle));
